@@ -1,0 +1,7 @@
+# Ignore artifacts:
+dest
+.prettierrc
+.eslintrc.js
+package-lock.json
+package.json
+eslint.config.js
