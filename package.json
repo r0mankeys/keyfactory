@@ -1,0 +1,32 @@
+{
+  "name": "keyfactory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "pretty": "prettier --write .",
+    "lint": "eslint .", 
+    "dev": "nodemon src/js/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r0mankeys/keyfactory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r0mankeys/keyfactory/issues"
+  },
+  "homepage": "https://github.com/r0mankeys/keyfactory#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "nodemon": "^3.1.7",
+    "prettier": "3.3.3"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
