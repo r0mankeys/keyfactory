@@ -1,49 +1,100 @@
 @import url("reset.css");
+@import url("utils.css");
 
 :root {
-  --main-bg-color: hsl(215, 19%, 6%);
-  --primary-bg-color: hsl(248, 10%, 15%);
-  --primary-green: hsl(127, 100%, 82%);
-  --accent-green: hsl(169, 100%, 55%);
-  --text-primary-color: hsl(248, 11%, 86%);
-  --text-secondary-color: hsl(248, 7%, 53%);
-  --font-size: 16px;
-  --text-size--2: clamp(0.5628rem, 0.5138rem + 0.2447vw, 0.7035rem);
-  --text-size--1: clamp(0.7502rem, 0.685rem + 0.3262vw, 0.9377rem);
-  --text-size-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
-  --text-size-1: clamp(1.333rem, 1.2171rem + 0.5796vw, 1.6663rem);
-  --text-size-2: clamp(1.7769rem, 1.6224rem + 0.7726vw, 2.2211rem);
-  --text-size-3: clamp(2.3686rem, 2.1626rem + 1.0298vw, 2.9607rem);
-  --text-size-4: clamp(3.1573rem, 2.8828rem + 1.3728vw, 3.9467rem);
-  --text-size-5: clamp(4.2087rem, 3.8428rem + 1.8299vw, 5.2609rem);
+	--main-bg-color: hsl(215, 19%, 6%);
+	--primary-bg-color: hsl(248, 10%, 15%);
+	--primary-green: hsl(127, 100%, 82%);
+	--accent-green: hsl(169, 100%, 55%);
+	--text-primary-color: hsl(248, 11%, 86%);
+	--text-secondary-color: hsl(248, 7%, 53%);
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --main-bg-color: hsl(240, 13%, 95%);
-    --primary-bg-color: hsl(249, 12%, 89%);
-    --primary-green: hsl(151, 62%, 44%);
-    --accent-green: hsl(168, 75%, 60%);
-    --text-primary-color: hsl(240, 3%, 17%);
-    --text-secondary-color: hsl(249, 4%, 31%);
-  }
-}
-
-/* @font-face {
-  font-family: "Fira Code";
-  font-weight: 500;
-  src: url(assets/font/Fira-Code-Medium.woff) format("woff");
+	:root {
+		--main-bg-color: hsl(240, 13%, 95%);
+		--primary-bg-color: hsl(249, 12%, 89%);
+		--primary-green: hsl(151, 62%, 44%);
+		--accent-green: hsl(168, 75%, 60%);
+		--text-primary-color: hsl(240, 3%, 17%);
+		--text-secondary-color: hsl(249, 4%, 31%);
+	}
 }
 
 @font-face {
-  font-family: "Fira Code";
-  font-weight: 700;
-  src: url(assets/font/Fira-Code-Bold.woff) format("woff");
-} */
+	font-family: "Fira Code";
+	font-weight: 500;
+	src: url(assets/font/Fira-Code-Medium.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Fira Code";
+	font-weight: 700;
+	src: url(assets/font/Fira-Code-Bold.woff) format("woff");
+}
 
 body {
-  background-color: var(--main-bg-color);
-  color: var(--text-primary-color);
-  font-family: "Fira Code", monospace, sans-serif;
-  font-size: var(--font-size);
+	background-color: var(--main-bg-color);
+	color: var(--text-primary-color);
+	font-family: "Fira Code", monospace, sans-serif;
+}
+
+header {
+	background-color: var(--primary-bg-color);
+	padding: var(--space-1);
+}
+
+div.logo {
+	font-size: var(--text-size1);
+	margin-inline-start: var(--space0);
+	font-weight: 700;
+}
+
+section.hero {
+	margin-block-start: var(--space3);
+}
+
+h1.hero-title {
+	font-size: var(--text-size2);
+	text-align: center;
+}
+
+p.hero-subtext {
+	color: var(--text-secondary-color);
+	text-align: center;
+}
+
+main.password-generator {
+	inline-size: calc(15rem + 20vw); 
+}
+
+div.password-container {
+	display: flex;
+	background-color: var(--primary-bg-color);
+	justify-content: space-between;
+}
+
+p#password-field {
+	font-size: var(--text-size1);
+	flex-grow: 0;
+	flex-shrink: 1;
+	padding-inline-end: 0;
+	overflow: scroll;
+}
+
+button#copy-password {
+	background-color: var(--primary-bg-color);
+	border: none;
+	cursor: pointer;
+	border-radius: var(--space-3);
+	margin-inline-start: var(--space-1)
+}
+
+img#copy-icon {
+	inline-size: var(--text-size1);
+	block-size: var(--text-size1);
+}
+
+section#password-creation-form-container {
+	background-color: var(--primary-bg-color);
 }
