@@ -1,0 +1,130 @@
+@import url("typography_spacing.css");
+
+.stack-small > * + * {
+	margin-block-start: var(--space0);
+}
+
+.stack-normal > * + * {
+	margin-block-start: var(--space1);
+}
+
+.stack-large > * + * {
+	margin-block-start: var(--space2);
+}
+
+.stack-universal * + * {
+	margin-block-start: var(--space1);
+}
+
+.box-small {
+	padding: var(--space0);
+	border-radius: var(--space-1);
+}
+
+.box-normal {
+	padding: var(--space1);
+	border-radius: var(--space-1);
+}
+
+.box-large {
+	padding: var(--space2);
+	border-radius: var(--space-2);
+}
+
+[class*="center"] {
+	box-sizing: content-box;
+	max-inline-size: 60ch;
+	margin-inline: auto;
+}
+
+.center-intrinsic {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+[class*="cluster"] {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+[class*="sidebar"] {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.sidebar-left > :first-child {
+	flex-grow: 0;
+}
+
+.sidebar-left > :last-child {
+	flex-grow: 1;
+	flex-basis: 999;
+	min-inline-size: 50%;
+}
+
+.sidebar-right > :first-child {
+	flex-grow: 1;
+	flex-basis: 999;
+	min-inline-size: 50%;
+}
+
+.sidebar-right > :last-child {
+	flex-grow: 0;
+}
+
+[class*="switcher"] {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+[class*="switcher"] > * {
+	flex-grow: 1;
+}
+
+.no-highlight {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms linear 300ms, opacity 300ms;
+	inline-size: fit-content;
+    background-color: hsl(120, 57%, 65%);
+    color: white;
+	padding: var(--space-3);
+	border-radius: var(--space-5);
+    font-size: var(--text-size-3);
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	bottom: 130%;
+	left: 3%;
+	z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+  opacity: 1;
+  transition: visibility 500ms linear 0s, opacity 300ms;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: hsl(120, 57%, 65%) transparent transparent transparent;
+}

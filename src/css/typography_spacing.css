@@ -1,0 +1,25 @@
+:root {
+	--base-font-size: calc(1rem + 0.5vw);
+	--text-ratio: 1.25;
+	--text-size5: calc(var(--text-size4) * var(--text-ratio));
+	--text-size4: calc(var(--text-size3) * var(--text-ratio));
+	--text-size3: calc(var(--text-size2) * var(--text-ratio));
+	--text-size2: calc(var(--text-size1) * var(--text-ratio));
+	--text-size1: calc(var(--base-font-size) * var(--text-ratio));
+	--text-size-0: clamp(1rem, 1rem + 0.2vw, 1.25rem);
+	--text-size-1: calc(var(--base-font-size) / var(--text-ratio));
+	--text-size-2: calc(var(--text-size-1) / var(--text-ratio));
+	--text-size-3: calc(var(--text-size-2) / var(--text-ratio));
+	--space-ratio: 1.5;
+	--space5: calc(var(--space4) * var(--space-ratio));
+	--space4: calc(var(--space3) * var(--space-ratio));
+	--space3: calc(var(--space2) * var(--space-ratio));
+	--space2: calc(var(--space1) * var(--space-ratio));
+	--space1: calc(var(--space0) * var(--space-ratio));
+	--space0: 1rem;
+	--space-1: calc(var(--space0) / var(--space-ratio));
+	--space-2: calc(var(--space-1) / var(--space-ratio));
+	--space-3: calc(var(--space-2) / var(--space-ratio));
+	--space-4: calc(var(--space-3) / var(--space-ratio));
+	--space-5: calc(var(--space-4) / var(--space-ratio));
+}
