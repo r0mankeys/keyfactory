@@ -6,6 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 		<link rel="stylesheet" href="css/style.css" />
 		<title>keyfactory</title>
 	</head>
@@ -32,7 +33,38 @@
 					/>
 				</button>
 			</div>
-			<section id="password-creation-form-container" class="box-normal">Yessir</section>
+			<section id="password-creation-form-container" class="box-normal">
+				<form id="password-form" class="stack-normal" action="js/form.js" method="post">
+					<div class="character-count-container">
+						<div class="character-count-label-manual">
+							<label for="password-character-count">Character Count</label>
+							<input type="number" name="password-character-count" placeholder="10" id="passwordCharacterCountManual"/>
+						</div>
+						<input type="range" min="4" max="64" value="10" name="password-character-count" id="passwordCharacterCount"/>
+					</div>
+					</div>
+					<div class="password-options stack-normal">
+						<div class="password-option">
+							<label for="uppercase">Include Uppercase Letters</label>
+							<input type="checkbox" name="uppercase" id="uppercase" />
+						</div>
+						<div class="password-option">
+							<label for="lowercase">Include Lowercase Letters</label>
+							<input type="checkbox" name="lowercase" id="lowercase" />
+						</div>
+						<div class="password-option">
+							<label for="numbers">Include Numbers</label>
+							<input type="checkbox" name="numbers" id="numbers" />
+						</div>
+						<div class="password-option">
+							<label for="symbols">Include Symbols</label>
+							<input type="checkbox" name="symbols" id="symbols" />
+						</div>
+					</div>
+					<button class="box-small" type="submit" id="form-submit">Generate</button>
+				</form>
+			</section>
 		</main>
+		<script  src="js/characterLogic.js"></script>
 	</body>
 </html>

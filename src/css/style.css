@@ -91,10 +91,61 @@ button#copy-password {
 }
 
 img#copy-icon {
-	inline-size: var(--text-size1);
-	block-size: var(--text-size1);
+	inline-size: var(--text-size-0);
+	block-size: var(--text-size-0);
 }
 
 section#password-creation-form-container {
 	background-color: var(--primary-bg-color);
+}
+
+form#password-form {
+	display: flex;
+	flex-direction: column;
+}
+
+div.character-count-label-manual {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input#passwordCharacterCountManual {
+	text-align: center;
+	background-color: var(--main-bg-color);
+	inline-size: calc(var(--text-size2) + .5rem);
+	font-size: var(--text-size-0);
+	padding: var(--space-4);
+	color: var(--primary-green);
+	border: none;
+	border-radius: var(--space-2);
+}
+
+input:focus {
+	outline: 2px solid var(--accent-green);
+}
+
+input#passwordCharacterCount {
+	margin-block-start: var(--space1);
+	inline-size: 100%;
+}
+
+input[type="range"] {
+	outline: none;
+}
+
+input[type="checkbox"] {
+	cursor: pointer;
+	outline: none;
+}
+
+button#form-submit {
+	font-weight: 700;
+	background-color: var(--primary-green);
+	border: none;
+	cursor: pointer;
+}
+
+button#form-submit:hover {
+	background-color: var(--accent-green);
 }
