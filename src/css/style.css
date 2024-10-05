@@ -55,7 +55,7 @@ section.hero {
 }
 
 h1.hero-title {
-	font-size: var(--text-size2);
+	font-size: var(--text-size3);
 	text-align: center;
 }
 
@@ -65,17 +65,19 @@ p.hero-subtext {
 }
 
 main.password-generator {
-	inline-size: calc(15rem + 20vw); 
+	inline-size: clamp(15rem, calc(15rem + 20vw), 30rem); 
 }
 
 div.password-container {
 	display: flex;
 	background-color: var(--primary-bg-color);
 	justify-content: space-between;
+	padding-inline: var(--space1);
 }
 
 p#password-field {
 	font-size: var(--text-size1);
+	font-weight: 700;
 	flex-grow: 0;
 	flex-shrink: 1;
 	padding-inline-end: 0;
@@ -110,11 +112,15 @@ div.character-count-label-manual {
 	align-items: center;
 }
 
+div.character-count-label-manual > label {
+	font-size: var(--text-size-0);
+}
+
 input#passwordCharacterCountManual {
 	text-align: center;
 	background-color: var(--main-bg-color);
-	inline-size: calc(var(--text-size2) + .5rem);
-	font-size: var(--text-size-0);
+	inline-size: calc(var(--text-size2) + 1.5rem);
+	font-size: var(--text-size1);
 	padding: var(--space-4);
 	color: var(--primary-green);
 	border: none;
@@ -126,9 +132,33 @@ input:focus {
 }
 
 input#passwordCharacterCount {
+	--webkit-appearance: none;
+	appearance: none;
+	background: none;
 	margin-block-start: var(--space1);
 	inline-size: 100%;
 }
+
+input#passwordCharacterCount::-webkit-slider-thumb,
+input#passwordCharacterCount::-moz-range-thumb {
+	--webkit-appearance: none;
+	appearance: none;
+	background-color: var(--text-primary-color);
+	border: none;
+	inline-size: var(--text-size1);
+	block-size: var(--text-size1);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+input#passwordCharacterCount::-webkit-slider-runnable-track,
+input#passwordCharacterCount::-moz-range-track {
+	--webkit-appearance: none;
+	appearance: none;
+	background-color: var(--primary-green);
+	height: 4px;
+}
+
 
 input[type="range"] {
 	outline: none;
@@ -139,13 +169,49 @@ input[type="checkbox"] {
 	outline: none;
 }
 
+div.password-option {
+	display: flex;
+	align-items: center;
+}
+
+div.password-option > input {
+	--webkit-appearance: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	appearance: none;
+	margin-inline-end: var(--space-1);
+	margin-inline-start: 0;
+	background-color: var(--text-primary-color);
+	width: var(--text-size-0);
+	height: var(--text-size-0);
+	border-radius: var(--space-4);
+}
+
+div.password-option > input:checked {
+	background-color: var(--primary-green);
+}
+
+div.password-option > input:checked::before {
+	content: "✔";
+	color: var(--main-bg-color);
+	font-size: var(--text-size-0);
+}
+
+div.password-option > label {
+	font-size: var(--text-size-0);
+}
+
 button#form-submit {
 	font-weight: 700;
 	background-color: var(--primary-green);
 	border: none;
 	cursor: pointer;
+	margin-block-start: var(--space2);
+	text-transform: uppercase;
+	letter-spacing: 0.5ex;
 }
 
-button#form-submit:hover {
-	background-color: var(--accent-green);
+button#form-submit:active {
+	outline: var(--accent-green) solid 3px;
 }
