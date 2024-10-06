@@ -31,6 +31,9 @@ export default function passwordGenerator(
         allowedCharacters = allowedCharacters.concat(characters.symbols);
         guaranteedCharacters.push(getRandomCharacterFromArray(characters.symbols));
     }
+    if (includesUpperCase === false && includeLowerCase === false && includeNumbers === false && includeSymbols === false) {
+        return ":(";
+    }
     for (let i = 0; i < characterCount - guaranteedCharacters.length; i++ ) {
         password.push(allowedCharacters[getRandomCharacter(allowedCharacters.length)]);
     }
