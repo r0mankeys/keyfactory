@@ -152,35 +152,54 @@ input:focus {
 }
 
 input#passwordCharacterCount {
-	--webkit-appearance: none;
-	appearance: none;
-	background: none;
-	margin-block-start: var(--space1);
-	inline-size: 100%;
+    -webkit-appearance: none; /* Corrected vendor prefix */
+    appearance: none;
+    background: none;
+    margin-block-start: var(--space1);
+    inline-size: 100%;
 }
 
-input#passwordCharacterCount::-webkit-slider-thumb,
+/* Thumb styling for WebKit browsers (Chrome, Safari, etc.) */
+input#passwordCharacterCount::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--text-primary-color);
+    border: none;
+    inline-size: var(--text-size1);
+    block-size: var(--text-size1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Thumb styling for Firefox */
 input#passwordCharacterCount::-moz-range-thumb {
-	--webkit-appearance: none;
-	appearance: none;
-	background-color: var(--text-primary-color);
-	border: none;
-	inline-size: var(--text-size1);
-	block-size: var(--text-size1);
-	border-radius: 50%;
-	cursor: pointer;
+    appearance: none;
+    background-color: var(--text-primary-color);
+    border: none;
+    inline-size: var(--text-size1);
+    block-size: var(--text-size1);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-input#passwordCharacterCount::-webkit-slider-runnable-track,
+/* Track styling for WebKit browsers */
+input#passwordCharacterCount::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--primary-green);
+    height: 4px;
+}
+
+/* Track styling for Firefox */
 input#passwordCharacterCount::-moz-range-track {
-	--webkit-appearance: none;
-	appearance: none;
-	background-color: var(--primary-green);
-	height: 4px;
+    appearance: none;
+    background-color: var(--primary-green);
+    height: 4px;
 }
 
+/* General input range styling */
 input[type="range"] {
-	outline: none;
+    outline: none;
 }
 
 input[type="checkbox"] {
