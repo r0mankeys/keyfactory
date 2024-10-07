@@ -1,37 +1,29 @@
-import express from "express";
 import passwordGenerator from "./passwordGenerator.js";
-import cors from "cors";
 
-const app = express();
+export default function handler(req, res) {
+  if (req.method === "POST") {
+    const {
+      characterCount,
+      includeUpperCase,
+      includeLowerCase,
+      includeNumbers,
+      includeSymbols,
+    } = req.body;
 
-app.use(express.static("../src"));
-app.use(express.static("../assets"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-
-app.get("/", (req, res) => {
-	res.sendStatus(200);
-});
-app.post("/api/server", (req, res) => {
-	const {
-		characterCount,
-		includeUpperCase,
-		includeLowerCase,
-		includeNumbers,
-		includeSymbols,
-	} = req.body;
-	try {
-		const password = passwordGenerator(
-			characterCount,
-			includeUpperCase,
-			includeLowerCase,
-			includeNumbers,
-			includeSymbols
-		);
-		res.send(password);
-	} catch (error) {
-		console.error("Error details: ", error);
-		res.status(500).send({ error: error.message });
-	}
-});
+    try {
+      const password = passwordGenerator(
+        characterCount,
+        includeUpperCase,
+        includeLowerCase,
+        includeNumbers,
+        includeSymbols
+      );
+      res.status(200).send(password);
+    } catch (error) {
+      console.error("Error processing request", error);
+      res.status(500).send({ error: error.message });
+    }
+  } else {
+    res.status(405).send("Method Not Allowed");
+  }
+}
