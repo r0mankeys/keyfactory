@@ -1,8 +1,7 @@
 import express from "express";
-import passwordGenerator from "../src/js/passwordGenerator.js";
+import passwordGenerator from "./passwordGenerator.js";
 
 const app = express();
-const port = 3000;
 
 app.use(express.static("../src"));
 app.use(express.static("../assets"));
@@ -13,7 +12,7 @@ app.get("/", (req, res) => {
 	res.sendStatus(200);
 });
 
-app.post("/post", (req, res) => {
+app.post("/api/server", (req, res) => {
 	const {
 		characterCount,
 		includeUpperCase,
@@ -33,8 +32,4 @@ app.post("/post", (req, res) => {
 	} catch (error) {
 		res.status(500).send({ error: error.message });
 	}
-});
-
-app.listen(port, () => {
-	console.log(`Server is running on http://localhost:${port}`);
 });

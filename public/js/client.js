@@ -74,7 +74,7 @@ copyButton.addEventListener("click", () => {
 form.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	try {
-		const response = await fetch("/post", {
+		const response = await fetch("/api/server", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
