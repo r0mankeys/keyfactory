@@ -2,12 +2,12 @@
   "name": "keyfactory",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./api/server.j",
   "type": "module",
   "scripts": {
     "pretty": "prettier --write .",
     "lint": "eslint .",
-    "dev": "nodemon src/js/server.js"
+    "dev": "nodemon ./api/server.js"
   },
   "repository": {
     "type": "git",
