@@ -23,33 +23,33 @@ const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); // Boo
 // Set initial theme based on user's system preference
 if (darkMediaQuery.matches) {
     setTheme("dark");
-    themeIcon.src = "../assets/Light-mode-icon.svg";
+    themeIcon.src = "./assets/Light-mode-icon.svg";
 } else {
     setTheme("light");
-    themeIcon.src = "../assets/Dark-mode-icon.svg";
+    themeIcon.src = "./assets/Dark-mode-icon.svg";
 }
 
 themeButton.addEventListener("click", () => {
     if (document.body.className === "dark") {
         setTheme("light");
-        themeIcon.src = "../assets/Dark-mode-icon.svg";
-        copyIcon.src = "../assets/Light-copy.svg";
+        themeIcon.src = "./assets/Dark-mode-icon.svg";
+        copyIcon.src = "./assets/Light-copy.svg";
     } else {
         setTheme("dark");
-        themeIcon.src = "../assets/Light-mode-icon.svg";
-        copyIcon.src = "../assets/Dark-copy.svg";
+        themeIcon.src = "./assets/Light-mode-icon.svg";
+        copyIcon.src = "./assets/Dark-copy.svg";
     }
 })
 
 darkMediaQuery.addEventListener("change", (e) => {
     if (e.matches) {
         setTheme("dark");
-        themeIcon.src = "../assets/Light-mode-icon.svg";
-        copyIcon.src = "../assets/Dark-copy.svg";
+        themeIcon.src = "./assets/Light-mode-icon.svg";
+        copyIcon.src = "./assets/Dark-copy.svg";
     } else {
         setTheme("light");
-        themeIcon.src = "../assets/Dark-mode-icon.svg";
-        copyIcon.src = "../assets/Light-copy.svg";
+        themeIcon.src = "./assets/Dark-mode-icon.svg";
+        copyIcon.src = "./assets/Light-copy.svg";
     }
 });
 
