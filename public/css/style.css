@@ -169,7 +169,7 @@ input#passwordCharacterCount::-webkit-slider-thumb {
     block-size: var(--text-size1);
     border-radius: 50%;
     cursor: pointer;
-	transform: translateY(-30%);
+	transform: translateY(-35%);
 }
 
 /* Thumb styling for Firefox */
