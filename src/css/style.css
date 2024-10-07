@@ -2,23 +2,32 @@
 @import url("utils.css");
 
 :root {
-	--main-bg-color: hsl(215, 19%, 6%);
-	--primary-bg-color: hsl(248, 10%, 15%);
-	--primary-green: hsl(127, 100%, 82%);
-	--accent-green: hsl(169, 100%, 55%);
-	--text-primary-color: hsl(248, 11%, 86%);
-	--text-secondary-color: hsl(248, 7%, 53%);
+    --main-bg-color: hsl(215, 19%, 6%);
+    --primary-bg-color: hsl(248, 10%, 15%);
+    --primary-green: hsl(127, 100%, 82%);
+    --accent-green: hsl(169, 100%, 55%);
+    --text-primary-color: hsl(248, 11%, 86%);
+    --text-secondary-color: hsl(248, 7%, 53%);
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--main-bg-color: hsl(240, 13%, 95%);
-		--primary-bg-color: hsl(249, 12%, 89%);
-		--primary-green: hsl(151, 62%, 44%);
-		--accent-green: hsl(168, 75%, 60%);
-		--text-primary-color: hsl(240, 3%, 17%);
-		--text-secondary-color: hsl(249, 4%, 31%);
-	}
+/* Dark Theme */
+body.dark {
+    --main-bg-color: hsl(215, 19%, 6%);
+    --primary-bg-color: hsl(248, 10%, 15%);
+    --primary-green: hsl(127, 100%, 82%);
+    --accent-green: hsl(169, 100%, 55%);
+    --text-primary-color: hsl(248, 11%, 86%);
+    --text-secondary-color: hsl(248, 7%, 53%);
+}
+
+/* Light Theme */
+body.light {
+    --main-bg-color: hsl(240, 13%, 95%);
+    --primary-bg-color: hsl(249, 12%, 89%);
+    --primary-green: hsl(151, 62%, 44%);
+    --accent-green: hsl(168, 75%, 60%);
+    --text-primary-color: hsl(240, 3%, 17%);
+    --text-secondary-color: hsl(249, 4%, 31%);
 }
 
 @font-face {
@@ -41,12 +50,24 @@ body {
 
 header {
 	background-color: var(--primary-bg-color);
-	padding: var(--space-1);
+	padding-block: var(--space-1);
+	padding-inline: var(--space2);
+	justify-content: space-between;
 }
+
+button#colour-mode {
+	inline-size: var(--text-size2);
+	block-size: var(--text-size2);
+	padding: var(--space-3);
+	background-color: var(--primary-bg-color);
+	border: solid 1px var(--text-primary-color); 
+	border-radius: var(--space-3);
+	cursor: pointer;
+}
+
 
 div.logo {
 	font-size: var(--text-size1);
-	margin-inline-start: var(--space0);
 	font-weight: 700;
 }
 
@@ -213,4 +234,8 @@ button#form-submit {
 
 button#form-submit:active {
 	outline: var(--accent-green) solid 3px;
+}
+
+button#form-submit:hover {
+	opacity: 0.8;
 }

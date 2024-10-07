@@ -9,7 +9,6 @@ app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 app.get("/", (req, res) => {
 	res.sendStatus(200);
 });

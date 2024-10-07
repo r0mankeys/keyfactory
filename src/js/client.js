@@ -1,6 +1,8 @@
+const themeButton = document.getElementById("colour-mode");
+const themeIcon = document.getElementById("theme-icon");
 const passwordOutput = document.getElementById("password-field");
 const copyButton = document.getElementById("copy-password");
-const copyIcon = document.getElementById("copy-icon");  
+const copyIcon = document.getElementById("copy-icon");
 const rangeInput = document.getElementById("passwordCharacterCount");
 const numberInput = document.getElementById(
 	"passwordCharacterCountManual"
@@ -11,37 +13,61 @@ const includeNumbers = document.getElementById("numbers");
 const includeSymbols = document.getElementById("symbols");
 const form = document.getElementById("password-form");
 
-// Copy password to clipboard
-copyButton.addEventListener("click", () => {
-	const password = passwordOutput.textContent;
-	if (password.length > 0) {
-		navigator.clipboard.writeText(password);
-	}
-});
-
-// Change button icon based on colour theme
-const updateCopyIcon = () => {
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        copyIcon.src = "Light-copy.svg";
-    } else {
-        copyIcon.src = "Dark-copy.svg";
-    }
+// Toggle colour theme
+const setTheme = (theme) => {
+    document.body.className = theme;
 };
 
-// Initial icon update
-updateCopyIcon();
+const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); // Boolean
 
-// Listen for changes in the color scheme
-window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", updateCopyIcon);
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateCopyIcon);
+// Set initial theme based on user's system preference
+if (darkMediaQuery.matches) {
+    setTheme("dark");
+    themeIcon.src = "Light-mode-icon.svg";
+} else {
+    setTheme("light");
+    themeIcon.src = "Dark-mode-icon.svg";
+}
+
+themeButton.addEventListener("click", () => {
+    if (document.body.className === "dark") {
+        setTheme("light");
+        themeIcon.src = "Dark-mode-icon.svg";
+        copyIcon.src = "Light-copy.svg";
+    } else {
+        setTheme("dark");
+        themeIcon.src = "Light-mode-icon.svg";
+        copyIcon.src = "Dark-copy.svg";
+    }
+})
+
+darkMediaQuery.addEventListener("change", (e) => {
+    if (e.matches) {
+        setTheme("dark");
+        themeIcon.src = "Light-mode-icon.svg";
+        copyIcon.src = "Dark-copy.svg";
+    } else {
+        setTheme("light");
+        themeIcon.src = "Dark-mode-icon.svg";
+        copyIcon.src = "Light-copy.svg";
+    }
+});
 
 // Sync range and number inputs
 rangeInput.addEventListener("input", (e) => {
-	numberInput.value = e.target.value;
+    numberInput.value = e.target.value;
 });
 
 numberInput.addEventListener("input", (e) => {
-	rangeInput.value = e.target.value;
+    rangeInput.value = e.target.value;
+});
+
+// Copy password to clipboard
+copyButton.addEventListener("click", () => {
+    const password = passwordOutput.textContent;
+    if (password.length > 0) {
+        navigator.clipboard.writeText(password);
+    }
 });
 
 // Send form data to server with fetch API and update password field
