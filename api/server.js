@@ -13,7 +13,6 @@ app.use(cors());
 app.get("/", (req, res) => {
 	res.sendStatus(200);
 });
-
 app.post("/api/server", (req, res) => {
 	const {
 		characterCount,
@@ -32,6 +31,7 @@ app.post("/api/server", (req, res) => {
 		);
 		res.send(password);
 	} catch (error) {
+		console.error("Error details: ", error);
 		res.status(500).send({ error: error.message });
 	}
 });

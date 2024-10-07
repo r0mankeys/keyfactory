@@ -15,59 +15,61 @@ const form = document.getElementById("password-form");
 
 // Toggle colour theme
 const setTheme = (theme) => {
-    document.body.className = theme;
+	document.body.className = theme;
 };
 
-const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); // Boolean
+const darkMediaQuery = window.matchMedia(
+	"(prefers-color-scheme: dark)"
+); // Boolean
 
 // Set initial theme based on user's system preference
 if (darkMediaQuery.matches) {
-    setTheme("dark");
-    themeIcon.src = "./assets/Light-mode-icon.svg";
+	setTheme("dark");
+	themeIcon.src = "./assets/Light-mode-icon.svg";
 } else {
-    setTheme("light");
-    themeIcon.src = "./assets/Dark-mode-icon.svg";
+	setTheme("light");
+	themeIcon.src = "./assets/Dark-mode-icon.svg";
 }
 
 themeButton.addEventListener("click", () => {
-    if (document.body.className === "dark") {
-        setTheme("light");
-        themeIcon.src = "./assets/Dark-mode-icon.svg";
-        copyIcon.src = "./assets/Light-copy.svg";
-    } else {
-        setTheme("dark");
-        themeIcon.src = "./assets/Light-mode-icon.svg";
-        copyIcon.src = "./assets/Dark-copy.svg";
-    }
-})
+	if (document.body.className === "dark") {
+		setTheme("light");
+		themeIcon.src = "./assets/Dark-mode-icon.svg";
+		copyIcon.src = "./assets/Light-copy.svg";
+	} else {
+		setTheme("dark");
+		themeIcon.src = "./assets/Light-mode-icon.svg";
+		copyIcon.src = "./assets/Dark-copy.svg";
+	}
+});
 
 darkMediaQuery.addEventListener("change", (e) => {
-    if (e.matches) {
-        setTheme("dark");
-        themeIcon.src = "./assets/Light-mode-icon.svg";
-        copyIcon.src = "./assets/Dark-copy.svg";
-    } else {
-        setTheme("light");
-        themeIcon.src = "./assets/Dark-mode-icon.svg";
-        copyIcon.src = "./assets/Light-copy.svg";
-    }
+	if (e.matches) {
+		setTheme("dark");
+		themeIcon.src = "./assets/Light-mode-icon.svg";
+		copyIcon.src = "./assets/Dark-copy.svg";
+	} else {
+		setTheme("light");
+		themeIcon.src = "./assets/Dark-mode-icon.svg";
+		copyIcon.src = "./assets/Light-copy.svg";
+	}
 });
 
 // Sync range and number inputs
 rangeInput.addEventListener("input", (e) => {
-    numberInput.value = e.target.value;
+	numberInput.value = e.target.value;
 });
 
 numberInput.addEventListener("input", (e) => {
-    rangeInput.value = e.target.value;
+	rangeInput.value = e.target.value;
 });
 
 // Copy password to clipboard
 copyButton.addEventListener("click", () => {
-    const password = passwordOutput.textContent;
-    if (password.length > 0) {
-        navigator.clipboard.writeText(password);
-    }
+	const password = passwordOutput.textContent;
+	if (password.length > 0) {
+		navigator.clipboard.writeText(password);
+	}
 });
 
 // Send form data to server with fetch API and update password field
