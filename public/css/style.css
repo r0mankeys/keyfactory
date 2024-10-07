@@ -33,13 +33,13 @@ body.light {
 @font-face {
 	font-family: "Fira Code";
 	font-weight: 500;
-	src: url(../../font/FiraCode-Medium.woff) format("woff");
+	src: url(../assets/font/FiraCode-Medium.woff) format("woff");
 }
 
 @font-face {
 	font-family: "Fira Code";
 	font-weight: 700;
-	src: url(../../font/FiraCode-Bold.woff) format("woff");
+	src: url(../assets/font/FiraCode-Bold.woff) format("woff");
 }
 
 body {
