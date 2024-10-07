@@ -244,6 +244,7 @@ div.password-option > label {
 button#form-submit {
 	font-weight: 700;
 	background-color: var(--primary-green);
+	color: var(--main-bg-color);
 	border: none;
 	cursor: pointer;
 	margin-block-start: var(--space2);
