@@ -26,9 +26,11 @@ const darkMediaQuery = window.matchMedia(
 if (darkMediaQuery.matches) {
 	setTheme("dark");
 	themeIcon.src = "./assets/Light-mode-icon.svg";
+	copyIcon.src = "./assets/Dark-copy.svg";
 } else {
 	setTheme("light");
 	themeIcon.src = "./assets/Dark-mode-icon.svg";
+	copyIcon.src = "./assets/Light-copy.svg";
 }
 
 themeButton.addEventListener("click", () => {
